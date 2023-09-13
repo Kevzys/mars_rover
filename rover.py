@@ -41,6 +41,9 @@ class Rover:
     def getCurrentCoordinates(self):
         return [self.x_pos, self.y_pos]
 
+    def getCurrentPosition(self):
+        return '' + str(self.x_pos) + ' ' + str(self.y_pos) + self.getCurrentDirection
+
     def move(self, x_boundry, y_boundry):
         if self.isMoveValid(x_boundry, y_boundry):
             directionToMove = self.getCurrentDirection()
@@ -51,7 +54,7 @@ class Rover:
             elif directionToMove == 'S':
                 self.y_pos -= 1
             elif directionToMove == 'W':
-                self.y_pos -= 1
+                self.x_pos -= 1
             return 'Rover moved to ' + str([self.x_pos, self.y_pos])
         else:
             return 'Move is out of bounds'
@@ -78,7 +81,6 @@ class Rover:
 plateau = input('Enter plateau dimensions: ')
 plateau_x = int(plateau.split()[0])
 plateau_y = int(plateau.split()[1])
-print([plateau_x, plateau_y])
 rover_starting = input('Enter rover starting coordinates: ')
 rover_x = int(rover_starting.split()[0])
 rover_y = int(rover_starting.split()[1])
@@ -89,3 +91,4 @@ r = Rover(rover_x,rover_y, rover_direction)
 for i in navigation:
     r.navigate(i, plateau_x, plateau_y)
     print(r)
+r.getCurrentPosition

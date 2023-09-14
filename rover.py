@@ -1,7 +1,5 @@
 
 class Rover:
-    
-    
     #initialize rover
     def __init__(self, x, y, direction):
 
@@ -48,7 +46,7 @@ class Rover:
 
     #returns the position and direction of the rover
     def getCurrentPosition(self):
-        return '' + str(self.x_pos) + ' ' + str(self.y_pos) + self.getCurrentDirection
+        return '' + str(self.x_pos) + ' ' + str(self.y_pos) + ' ' + str(self.getCurrentDirection())
 
     #primary function to initiate a move on the rover, if move is invalid (out of bounds) it will not move
     def move(self, x_boundry, y_boundry):
@@ -101,4 +99,4 @@ r = Rover(rover_x,rover_y, rover_direction)
 for i in navigation:
     r.navigate(i, plateau_x, plateau_y)
     print(r)
-r.getCurrentPosition
+print(r.getCurrentPosition())
